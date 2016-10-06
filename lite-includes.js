@@ -261,6 +261,7 @@
 		for (var i = 0, len = initListeners.length; i < len; ++i) {
 			try {
 				initListeners[i](api);
+				initListeners[i](api);
 			} catch (ex) {
 				errorMessage = "Rangy init listener threw an exception. Continuing. Detail: " + getErrorDesc(ex);
 				consoleLog(errorMessage);
@@ -7002,7 +7003,7 @@
 		if (!startElement) {
 			startElement = document;
 		}
-		element = startElement.getElementById(id);
+		var element = startElement.getElementById(id);
 		return element;
 	};
 	dom.getTag = function (tagName, startElement) {
@@ -7251,7 +7252,7 @@
 		try {
 			while (el && el.parentNode) {
 				if (el.parentNode && el.parentNode.tagName) {
-					tagName = el.parentNode.tagName.toLowerCase();
+					var tagName = el.parentNode.tagName.toLowerCase();
 					for (var i = 0; i < names.length; i++) {
 						if (tagName === names[i]) {
 							return el.parentNode;
@@ -7930,7 +7931,7 @@
 					if (r < 10) r = '0' + r;
 					break;
 				case 'M':
-					months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+					const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 					r = months[date.getMonth()];
 					if (f === 'M') {
 						r = r.substring(0, 3);

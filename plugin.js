@@ -310,8 +310,25 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 		}
 		return false;
 	}
-	
-	/**
+
+    /**
+     * @member LITE.AcceptRejectOptions
+     * @property {Array} include
+     * An array of user ids to include. Only changes made by users in the include list will be accepted/rejected
+     */
+
+    /**
+     * The minimum height that the editor can assume when adjusting to content by using the Auto Grow
+     * feature. This option accepts a value in pixels, without the unit (for example: `300`).
+     *
+     *		config.lite_users = [{name: "Roger", id : 18}, {name: "David", id : moodle_user}, {name : "Syd", id : 21}];
+     *
+     * @since 3.4
+     * @cfg {Array} [lite_users=[]]
+     * @member CKEDITOR.config
+     */
+
+    /**
 	 * @class LITE.AcceptRejectOptions
 	 * A map of options for filtering changes before they're accepted/rejected.
 	 */
@@ -465,7 +482,7 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 		
 		icons: "lite-acceptall,lite-acceptone,lite-rejectall,lite-rejectone,lite-toggleshow,lite-toggletracking",// %REMOVE_LINE_CORE%
 		hidpi: true,
-		lang: ["en", "de"],
+		lang: ["en", "de", "pt-br"],
 
 		_scriptsLoaded : null, // not false, which means we're loading
 		
@@ -550,7 +567,47 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 				}
 			};
 			
-			load1(scripts);		
+			load1(scripts);
+
+
+            ed.on('dataReady', function() {
+                // alert('passo 100');
+                // var lite = ed.plugins.lite.findPlugin(ed),
+                //     lite_config = CKEDITOR.tools.extend({}, ed.config.lite || {});
+
+                // lite_config.isTracking = !ed.config.readOnly;
+
+                // ed.config.toolbarGroups.push({name: 'lite'});
+                // if (ed.config.readOnly) {
+                //     alert('somente leitura');
+                //     // config.toolbarGroups.push({name: 'lite'});
+                //     // ed.config.toolbarGroups.splice(6,8);
+                // } else {
+                //     alert('editável');
+                //     // ed.config.toolbarGroups.push({name: 'lite'});
+                // }
+
+
+                // lite.setUserInfo(ed.config.lite_users[0]);
+
+
+                // alert('passo 100:'+(ed.config.lite_users[0].id));
+                // alert('passo 30'+i+':'+ed.config.lite.userStyles[ed.config.lite_users[0].id]);
+
+                // for (i = 0; i < ed.config.lite_users.length-1; i++) {
+                //     alert('passo 10'+i+':'+(ed.config.lite_users[i].id));
+                //     // lite.userStyles[(ed.config.lite_users[i].id)] = i;
+                //     // lite.userStyles[i] = i;
+                //     alert('passo 20'+i+':'+(ed.config.lite_users[i].id));
+                //     // lite.userStyles.push( i);
+                //     // lite.userStyles[(ed.config.lite_users[i].id)] = i;
+                //     // var litex = lite.config = lite.config || {};
+                //     // lite_config.userStyles[i] = i;
+                //     alert('passo 30'+i+':'+ed.config.lite.userStyles[ed.config.lite_users[0].id]);
+                //     // alert('passo 30'+i+':'+(ed.config.lite_users[i].id));
+                // }
+
+            });
 		},
 		
 		/**
