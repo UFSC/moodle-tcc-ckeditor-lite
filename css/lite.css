@@ -34,34 +34,58 @@ ins.ice-no-decoration, del.ice-no-decoration {
 	display: inline;
 	text-decoration: line-through !important;
 	color: #555;
-	background-color: #e5ffcd !important;
+	background-color: #d6ffbd !important;
 }
 
 .ICE-Tracking .ice-ins, .ICE-Tracking .ice-ins>*  {
-	background-color: #e5ffcd !important;
+	background-color: #d6ffbd !important;
 }
 
 .ICE-Tracking .ice-ins.ice-cts-1, .ICE-Tracking .ice-ins.ice-cts-1>*  {
-	background-color: #e5ffcd !important;
+	background-color: #d6ffbd !important;
 }
 
 .ICE-Tracking .ice-ins.ice-cts-2, .ICE-Tracking .ice-ins.ice-cts-2>*  {
-	background-color: #e3ffff !important;
+	background-color: #b3fcff !important;
 }
 
 .ICE-Tracking .ice-ins.ice-cts-3, .ICE-Tracking .ice-ins.ice-cts-3>*  {
-	background-color: #ffdddd !important;
+  background-color: #ffdddd !important;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-4, .ICE-Tracking .ice-ins.ice-cts-4>*  {
+  background-color: #ffbc64 !important;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-5, .ICE-Tracking .ice-ins.ice-cts-5>*  {
+  background-color: #c2b9ff !important;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-6, .ICE-Tracking .ice-ins.ice-cts-6>*  {
+  background-color: #fffd9c !important;
 }
 
 .ICE-Tracking .ice-del.ice-cts-1 {
-	background-color: #e5ffcd !important;
+	background-color: #d6ffbd !important;
 }
 
 .ICE-Tracking .ice-del.ice-cts-2 {
-	background-color: #e3ffff !important;
+	background-color: #b3fcff !important;
 }
 
 .ICE-Tracking .ice-del.ice-cts-3 {
-	background-color: #ffdddd !important;
+  background-color: #ffdddd !important;
+}
+
+.ICE-Tracking .ice-del.ice-cts-4 {
+  background-color: #ffbc64 !important;
+}
+
+.ICE-Tracking .ice-del.ice-cts-5 {
+  background-color: #ffb7b7 !important;
+}
+
+.ICE-Tracking .ice-del.ice-cts-6 {
+  background-color: #c2b9ff !important;
 }
 

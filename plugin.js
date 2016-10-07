@@ -549,7 +549,6 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 			if (ttConfig.path) {
 				scripts.push(this.path + ttConfig.path);
 			}
-			
 			var load1 = function() {
 				if (scripts.length < 1) {
 					self._scriptsLoaded = true;
@@ -566,50 +565,23 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 					CKEDITOR.scriptLoader.load(script, function() {load1();}, self);
 				}
 			};
-			
+
 			load1(scripts);
 
+            ed.on('dataReady', (function() {
+                var lite = ed.plugins.lite.findPlugin(ed),
+                    lite_config = CKEDITOR.tools.extend({}, ed.config.lite || {});
 
-            ed.on('dataReady', function() {
-                // alert('passo 100');
-                // var lite = ed.plugins.lite.findPlugin(ed),
-                //     lite_config = CKEDITOR.tools.extend({}, ed.config.lite || {});
+                lite._canAcceptReject = !ed.config.readOnly;
 
-                // lite_config.isTracking = !ed.config.readOnly;
-
-                // ed.config.toolbarGroups.push({name: 'lite'});
-                // if (ed.config.readOnly) {
-                //     alert('somente leitura');
-                //     // config.toolbarGroups.push({name: 'lite'});
-                //     // ed.config.toolbarGroups.splice(6,8);
-                // } else {
-                //     alert('editável');
-                //     // ed.config.toolbarGroups.push({name: 'lite'});
-                // }
-
-
-                // lite.setUserInfo(ed.config.lite_users[0]);
-
-
-                // alert('passo 100:'+(ed.config.lite_users[0].id));
-                // alert('passo 30'+i+':'+ed.config.lite.userStyles[ed.config.lite_users[0].id]);
-
-                // for (i = 0; i < ed.config.lite_users.length-1; i++) {
-                //     alert('passo 10'+i+':'+(ed.config.lite_users[i].id));
-                //     // lite.userStyles[(ed.config.lite_users[i].id)] = i;
-                //     // lite.userStyles[i] = i;
-                //     alert('passo 20'+i+':'+(ed.config.lite_users[i].id));
-                //     // lite.userStyles.push( i);
-                //     // lite.userStyles[(ed.config.lite_users[i].id)] = i;
-                //     // var litex = lite.config = lite.config || {};
-                //     // lite_config.userStyles[i] = i;
-                //     alert('passo 30'+i+':'+ed.config.lite.userStyles[ed.config.lite_users[0].id]);
-                //     // alert('passo 30'+i+':'+(ed.config.lite_users[i].id));
-                // }
-
-            });
+                // var info = {id: "30", name: "teste30"};
+                // var info = {id: "31", name: "teste31"};
+                var info = {id: "32", name: "teste32"};
+                lite.setUserInfo(info);
+                // lite.setUserInfo(ed.config.lite_users[1]);
+            }));
 		},
-		
+
 		/**
 		 * returns the plugin instance associated with an editor
 		 * @param {Object} editor A CKEditor instance. Each ckeditor instance has its own instance of a LITE plugin 
@@ -632,9 +604,9 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 				_logError("startNewSession: plugin not found");
 			}
 		}
-		
+
 	});
-	
+
 	/**
 	 * @class LITE.LITEPlugin
 	 * The LITEPlugin is created per instance of a CKEditor. This object handles all the events and commands associated with change tracking in a specific editor.
