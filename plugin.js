@@ -130,7 +130,7 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 		preserveOnPaste: 'p',
 		css: 'css/lite.css'
 	},
-	
+
 	defaultTooltipTemplate = "%a by %u %t",
 	
 	ice = null,
@@ -573,12 +573,9 @@ Written by (David *)Frenkiel - https://github.com/imdfl
                     lite_config = CKEDITOR.tools.extend({}, ed.config.lite || {});
 
                 lite._canAcceptReject = !ed.config.readOnly;
-
-                // var info = {id: "30", name: "teste30"};
-                // var info = {id: "31", name: "teste31"};
-                var info = {id: "32", name: "teste32"};
-                lite.setUserInfo(info);
-                // lite.setUserInfo(ed.config.lite_users[1]);
+                if (ed.config.lite_users.length >= 1) {
+                    lite.setUserInfo(ed.config.lite_users[0]);
+                }
             }));
 		},
 
@@ -632,9 +629,7 @@ Written by (David *)Frenkiel - https://github.com/imdfl
 			this._canAcceptReject =  true; // enable state for accept reject overriding editor readonly
 			this._removeBindings = [];
 			
-			if (! defaultTooltipTemplate) {
-				defaultTooltipTemplate = "%a " + lang.lite.BY + " %u %t";
-			}
+			defaultTooltipTemplate = "%a " + lang.BY + " %u %t";
 
 			ed.ui.addToolbarGroup('lite');
 			this._setPluginFeatures(ed, LITEConstants);
